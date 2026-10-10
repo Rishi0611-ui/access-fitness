@@ -160,3 +160,9 @@ def test_export_csv(client):
     assert res.status_code == 200
     assert res.mimetype == "text/csv"
     assert "Ravi" in res.data.decode()
+
+
+def test_version(client):
+    res = client.get("/version")
+    assert res.status_code == 200
+    assert res.json["version"] == "1.0.0"
