@@ -1,0 +1,4 @@
+.git
+pycache/
+*.db
+.pytest_cache/
