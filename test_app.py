@@ -166,3 +166,8 @@ def test_version(client):
     res = client.get("/version")
     assert res.status_code == 200
     assert res.json["version"] == "1.0.0"
+
+
+def test_version_from_env(client, monkeypatch):
+    monkeypatch.setenv("APP_VERSION", "2.0.0")
+    assert client.get("/version").json["version"] == "2.0.0"

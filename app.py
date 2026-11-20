@@ -175,7 +175,8 @@ def create_app(db_path=None):
 
     @app.get("/version")
     def version():
-        return jsonify({"app": "ACEest Fitness & Gym", "version": "1.0.0"})
+        return jsonify({"app": "ACEest Fitness & Gym",
+                        "version": os.environ.get("APP_VERSION", "1.0.0")})
 
     # ----- programs (v1.0 / v1.1) -----
     @app.get("/programs")
